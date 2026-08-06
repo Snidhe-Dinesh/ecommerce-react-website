@@ -21,14 +21,14 @@ const products = [
         description:"Upgrade your workspace with our sleek, high-performance wireless mouse . Designed for ultimate freedom and comfort, it cuts the cord to give you a clean desk and smooth, accurate tracking anywhere you work. "
     },
     {
-        id:3,
+        id:4,
         name:'Keyboard',
         price:'$89.99',
         image:"https://plus.unsplash.com/premium_photo-1664194583917-b0ba07c4ce2a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         description:"Upgrade your workspace comfort. Designed to mimic the natural posture of your hands, this ergonomic keyboard reduces wrist strain during long typing sessions. The split-key layout and integrated cushioned palm rest ensure you can work for hours without discomfort."
     },
     {
-        id:4,
+        id:5,
         name:'Monitor',
         price:'$199.99',
         image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

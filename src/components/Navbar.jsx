@@ -10,8 +10,8 @@ export default function Navbar() {
                     <li><Link to="/checkout">Cart</Link></li>
                 </ul>
                 <div className="right-nav">
-                    <button className="login"><Link  to="/auth">Login</Link></button>
-                    <button className="logout"><Link  to="/auth">Sign up</Link></button>
+                    <Link className="login"  to="/auth">Login</Link>
+                   <Link className="logout" to="/auth">Sign up</Link>
 
                 </div>
 

@@ -6,7 +6,7 @@ export default function Home() {
     return <div>
         <div className="container">
         <h2>Welcome to ShopHub</h2>
-        <p>Discover your favorate product here</p>
+        <p>Discover your favorite product here</p>
 
             <h2>Our Products</h2>
             <div className="products">
