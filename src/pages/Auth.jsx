@@ -22,6 +22,7 @@ export default function Auth() {
         }
 if(result.success){
    Navigate("/")
+   
 }else{
     setError(result.error)
 }
