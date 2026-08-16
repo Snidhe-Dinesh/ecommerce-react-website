@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const AuthContext = createContext(null)
 export default function AuthProvider({ children }) {
@@ -37,4 +37,9 @@ localStorage.setItem("currentUserEmail",email)
     }
     return <AuthContext.Provider value={{ signUp, user, logout, login }}>{children}</AuthContext.Provider>
 
+}
+// ----creating hook--------
+export function useAuth(){
+    const context=useContext(AuthContext)
+    return context;
 }

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { useForm } from "react-hook-form"
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext, useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 
@@ -8,7 +8,9 @@ export default function Auth() {
     const [mode, setMode] = useState("signup");
     const Navigate=useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { signUp, user,logout,login } = useContext(AuthContext);
+    // const { signUp, user,logout,login } = useContext(AuthContext);
+    const { signUp,login } = useAuth();
+
     const[error,setError]=useState(null);
     function formSumbit(data) {
         setError(null);
@@ -22,7 +24,7 @@ export default function Auth() {
         }
 if(result.success){
    Navigate("/")
-   
+
 }else{
     setError(result.error)
 }
@@ -33,9 +35,9 @@ if(result.success){
     return (
         <div className="outer-container">
             <div className="inner-container">
-                {user && <p>user logged in {user.email}</p> }
+                {/* {user && <p>user logged in {user.email}</p> } */}
 
-                <button onClick={logout}>logout</button>
+                {/* <button onClick={logout}>logout</button> */}
                 <div>            <h2>{mode === "signup" ? "Sign Up" : "Login"}</h2>
                 </div>
                 <form action="" className="auth-form" onSubmit={handleSubmit(formSumbit)}>

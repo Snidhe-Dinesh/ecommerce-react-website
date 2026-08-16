@@ -38,3 +38,6 @@ const products = [
 export default function getProduct(){
     return products;
 }
+export  function getProductById(id){
+    return products.find((p)=> p.id === Number(id))
+}
