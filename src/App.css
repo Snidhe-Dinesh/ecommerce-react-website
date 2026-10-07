@@ -397,12 +397,12 @@ nav ul{
 }
 
 .product-info h4 {
-  font-size: 12px;
+  font-size: 18px;
   margin-bottom: 8px;
 }
 
 .product-info p {
-  font-size: 9px;
+  font-size: 15px;
   color: #777;
 }
 
@@ -417,7 +417,7 @@ nav ul{
 }
 
 .product-actions strong {
-  font-size: 11px;
+  font-size: 16px;
 }
 
 
@@ -435,11 +435,11 @@ nav ul{
   border: 1px solid #ddd;
   background: white;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .quantity span {
-  font-size: 11px;
+  font-size: 15px;
   min-width: 15px;
   text-align: center;
 }
@@ -451,8 +451,8 @@ nav ul{
   border: none;
   background: #777;
   color: white;
-  padding: 3px 7px;
-  font-size: 8px;
+  padding: 8px 15px;
+  font-size: 15px;
   border-radius: 2px;
   cursor: pointer;
 }
@@ -472,7 +472,7 @@ nav ul{
 }
 
 .total-box h3 {
-  font-size: 14px;
+  font-size: 20px;
   margin-bottom: 15px;
   padding-bottom: 12px;
   border-bottom: 1px solid #eee;
@@ -482,20 +482,20 @@ nav ul{
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .price-row strong {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .price-row.total {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .price-row.total strong {
   color: #1976d2;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 
@@ -508,7 +508,7 @@ nav ul{
   border: none;
   background: #087ee8;
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
   border-radius: 2px;
 }
