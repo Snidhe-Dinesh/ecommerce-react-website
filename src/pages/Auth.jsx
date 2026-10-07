@@ -67,7 +67,7 @@ if(result.success){
                     <button type="submit" className="btn-blue">{mode === "signup" ? "Sign Up" : "Login"}</button>
 
                     <div className="auth-para">
-                        {mode === "signup" ? (<p>already have an account,Please <button onClick={() => setMode("login")}>Login</button></p>) : (<p>You dont have any accout Please <button onClick={() => setMode("signup")}>Sign Up</button></p>)
+                        {mode === "signup" ? (<p>already have an account,Please <span onClick={() => setMode("login")}>Login</span></p>) : (<p>You dont have any accout Please <span onClick={() => setMode("signup")}>Sign Up</span></p>)
 
                         }
 
