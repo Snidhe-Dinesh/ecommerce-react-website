@@ -2,32 +2,33 @@ import { useContext, useState } from "react"
 import { useForm } from "react-hook-form"
 import { AuthContext, useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import { useSearchParams } from "react-router-dom";
 
 export default function Auth() {
-    const [mode, setMode] = useState("signup");
-    const Navigate=useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const mode = searchParams.get("mode") || "login";
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     // const { signUp, user,logout,login } = useContext(AuthContext);
-    const { signUp,login } = useAuth();
+    const { signUp, login } = useAuth();
 
-    const[error,setError]=useState(null);
+    const [error, setError] = useState(null);
     function formSumbit(data) {
         setError(null);
         let result;
-        if(mode==="signup"){
-           result= signUp(data.email, data.password)
+        if (mode === "signup") {
+            result = signUp(data.email, data.password)
 
-        }else{
-          result=  login(data.email, data.password)
+        } else {
+            result = login(data.email, data.password)
 
         }
-if(result.success){
-   Navigate("/")
+        if (result.success) {
+            navigate("/")
 
-}else{
-    setError(result.error)
-}
+        } else {
+            setError(result.error)
+        }
 
     }
 
@@ -41,7 +42,7 @@ if(result.success){
                 <div>            <h2>{mode === "signup" ? "Sign Up" : "Login"}</h2>
                 </div>
                 <form action="" className="auth-form" onSubmit={handleSubmit(formSumbit)}>
-                {error && <div>{error}</div>}
+                    {error && <div>{error}</div>}
 
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
@@ -66,11 +67,23 @@ if(result.success){
                     </div>
                     <button type="submit" className="btn-blue">{mode === "signup" ? "Sign Up" : "Login"}</button>
 
+
                     <div className="auth-para">
-                        {mode === "signup" ? (<p>already have an account,Please <span onClick={() => setMode("login")}>Login</span></p>) : (<p>You dont have any accout Please <span onClick={() => setMode("signup")}>Sign Up</span></p>)
-
-                        }
-
+                        {mode === "signup" ? (
+                            <p>
+                                Already have an account, Please{" "}
+                                <span onClick={() => setSearchParams({ mode: "login" })}>
+                                    Login
+                                </span>
+                            </p>
+                        ) : (
+                            <p>
+                                You don't have any account, Please{" "}
+                                <span onClick={() => setSearchParams({ mode: "signup" })}>
+                                    Sign Up
+                                </span>
+                            </p>
+                        )}
                     </div>
                 </form>
             </div>

@@ -1,8 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import { getProductById } from "../data/products";
+import { useNavigate } from "react-router-dom";
 
-export const AddCartContext = createContext(null)
+export const AddCartContext = createContext(null);
 export default function CartProvider({ children }) {
+
+  const navigate = useNavigate()
+
   const [cartItems, setCartItems] = useState([]);
 
   function addToCart(productId) {
@@ -24,38 +28,40 @@ export default function CartProvider({ children }) {
       product: getProductById(item.id)
     })).filter(item => item.product)
   }
-  function removeItem(productId){
-    setCartItems(cartItems.filter((item)=>item.id !== productId))
+  function removeItem(productId) {
+    setCartItems(cartItems.filter((item) => item.id !== productId))
 
   }
-  function updateQuantity(productId,quantity){
-    if(quantity<=0){
+  function updateQuantity(productId, quantity) {
+    if (quantity <= 0) {
       removeItem(productId);
       return;
     }
-   setCartItems(
-    cartItems.map((item)=>
-    item.id === productId?{...item,quantity}:item)
-   )
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === productId ? { ...item, quantity } : item)
+    )
 
   }
-  function getProductTotal(){
-    const total=cartItems.reduce(
-      (total,item)=>{
-        const product=getProductById(item.id);
-        return total +(product ? product.price * item.quantity:0)
+  function getProductTotal() {
+    const total = cartItems.reduce(
+      (total, item) => {
+        const product = getProductById(item.id);
+        return total + (product ? product.price * item.quantity : 0)
       }
-      ,0)
-      return total;
+      , 0)
+    return total;
   }
-  function clearCart(){
-    setCartItems([])
+  function clearCart() {
+    setCartItems([]);
+    navigate("/");
 
   }
 
-  return <AddCartContext.Provider value={{ cartItems, addToCart, getCartItemWithProduct,removeItem,updateQuantity,getProductTotal,clearCart }}>{children}</AddCartContext.Provider>
+  return <AddCartContext.Provider value={{ cartItems, addToCart, getCartItemWithProduct, removeItem, updateQuantity, getProductTotal, clearCart }}>{children}</AddCartContext.Provider>
 
 }
+
 // ----creating hook--------
 export function useAddCart() {
   const context = useContext(AddCartContext)
